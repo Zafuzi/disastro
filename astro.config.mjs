@@ -4,4 +4,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     root: "src",
     ignore: ["ios", "android", "dist"],
+    output: "server"
 });
