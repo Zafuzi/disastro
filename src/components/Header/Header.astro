@@ -1,0 +1,20 @@
+---
+import "./Header.less";
+
+const {title, page} = Astro.props;
+
+const isActive = function(pageName)
+{
+    return pageName === page ? "active" : "";
+}
+---
+
+<header>
+    <nav class="container-1100 container-centered">
+        <ul class="flex flex-row-nowrap gap-8 align-center">
+            <li><a href="/" class={isActive("home")}>Home</a></li>
+            <li><a href="/about" class={isActive("about")}>About</a></li>
+            <li><a href="/contact" class={isActive("contact")}>Contact</a></li>
+        </ul>
+    </nav>
+</header>
