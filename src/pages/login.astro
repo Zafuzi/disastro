@@ -1,0 +1,36 @@
+---
+import Layout from "../Layout.astro";
+
+const isLogin = true;
+
+---
+
+<Layout title="Login" page="login">
+    <main class="container-1100 container-centered container-padded">
+        <h1>Login</h1>
+        
+        <form class="flex flex-column gap-8" method="POST" action="/api/login" id="loginForm">
+            <input type="text" name="username" id="username" placeholder="Email or username" required/>
+            <input type="password" name="password" id="password" placeholder="Password" required/>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+</Layout>
+
+<script>
+    import {Listener, Server} from "../lib";
+
+    const loginForm = document.querySelector("#loginForm");
+    
+    new Listener("#loginForm", "submit", async function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(loginForm);
+        const username = formData.get("username");
+        const password = formData.get("password");
+        
+        const response = await Server.post("/api/login", {username, password});
+        
+        console.log(response);
+    });
+</script>
