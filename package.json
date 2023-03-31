@@ -12,6 +12,7 @@
     "run_ios": "npx cap sync; npx cap run ios;"
   },
   "dependencies": {
+    "@astrojs/node": "^5.1.0",
     "@capacitor/core": "^4.7.2",
     "@capacitor/ios": "^4.7.2",
     "astro": "^2.1.9",
